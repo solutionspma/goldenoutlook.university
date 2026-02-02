@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Outlook University — Medicare Training</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🏫 Golden Outlook University</h1>
+      <p>Interactive Medicare Training for Insurance Professionals</p>
+      <nav>
+        <a href="#" data-page="home" class="active">Home</a>
+        <a href="#" data-page="course">Course</a>
+        <a href="#" data-page="lessons">Lessons</a>
+        <a href="#" data-page="quizzes">Quizzes</a>
+        <a href="#" data-page="facilitator">Facilitator Guide</a>
+        <a href="#" data-page="leaderboard">Leaderboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HOME SECTION -->
+    <section data-page="home" class="active">
+      <h2>Welcome to Medicare Training</h2>
+      <p>Golden Outlook University provides interactive, gamified training on Medicare plans, enrollment, compliance, and sales enablement.</p>
+      
+      <div class="course-card">
+        <h3>📚 Course Overview</h3>
+        <p><strong>Duration:</strong> 4 modules (flexible scheduling)</p>
+        <p><strong>Format:</strong> Interactive lessons, quizzes, and facilitator-led Zoom/Teams sessions</p>
+        <p><strong>Target Audience:</strong> Insurance marketing professionals</p>
+        <button class="btn" onclick="showPage('course')">Start Course</button>
+      </div>
+
+      <div class="course-card">
+        <h3>🎮 Game of Field Activities</h3>
+        <p>Earn points for completing lessons and quizzes. Compete on the leaderboard!</p>
+        <p><span id="points-display">0 points</span></p>
+        <button class="btn btn-secondary" onclick="showPage('leaderboard')">View Leaderboard</button>
+      </div>
+
+      <div class="course-card">
+        <h3>👨‍🏫 For Facilitators</h3>
+        <p>Use this site to deliver live training via Zoom or Microsoft Teams. Includes session scripts, timer, and breakout room guidance.</p>
+        <button class="btn btn-secondary" onclick="showPage('facilitator')">Facilitator Guide</button>
+      </div>
+    </section>
+
+    <!-- COURSE SECTION -->
+    <section data-page="course">
+      <h2>Medicare Training Course</h2>
+      <p>4-module program on Medicare fundamentals, plan types, compliance, and sales enablement.</p>
+
+      <h3>Module 1: Medicare Basics</h3>
+      <p>Learn the fundamentals of Medicare Parts A, B, C (Medicare Advantage), and D. Understand eligibility and enrollment periods.</p>
+      <button class="btn" onclick="goToLesson(1)">Start Module 1</button>
+
+      <h3>Module 2: Plan Types & Benefits</h3>
+      <p>Explore Medicare Advantage vs Original Medicare, Supplemental (Medigap) plans, and prescription drug coverage.</p>
+      <button class="btn" onclick="goToLesson(2)">Start Module 2</button>
+
+      <h3>Module 3: Compliance & Marketing</h3>
+      <p>Master CMS regulations for Medicare marketing. Learn do's, don'ts, and documentation requirements.</p>
+      <button class="btn" onclick="goToLesson(3)">Start Module 3</button>
+
+      <h3>Module 4: Sales Enablement & Role-Play</h3>
+      <p>Develop value propositions, practice objection handling, and engage in live role-play activities.</p>
+      <button class="btn" onclick="goToLesson(4)">Start Module 4</button>
+    </section>
+
+    <!-- LESSONS SECTIONS -->
+    <section data-page="lesson-1">
+      <h2>Module 1: Medicare Basics</h2>
+      <p><strong>Learning Objectives:</strong></p>
+      <ul>
+        <li>Define Medicare Parts A, B, C, and D</li>
+        <li>Understand eligibility and enrollment periods</li>
+        <li>Master key Medicare terminology</li>
+      </ul>
+
+      <h3>Reading Material</h3>
+      <p>📖 See <code>The-Only-Medicare-Book-You-Need.pdf</code> — Chapter 1</p>
+
+      <h3>Key Concepts</h3>
+      <ul>
+        <li><strong>Part A:</strong> Hospital insurance (inpatient)</li>
+        <li><strong>Part B:</strong> Medical insurance (doctor visits, outpatient)</li>
+        <li><strong>Part C:</strong> Medicare Advantage (private alternative)</li>
+        <li><strong>Part D:</strong> Prescription drug coverage</li>
+      </ul>
+
+      <h3>In-Class Activity</h3>
+      <p>Discuss with a partner: What are the main differences between Parts A and B?</p>
+
+      <h3>Homework</h3>
+      <p>Read Chapter 2 of the textbook and prepare a 2-minute summary.</p>
+
+      <div class="facilitator-note">
+        <strong>Facilitator Note:</strong> Allocate 15 minutes for this module. Use a poll in Zoom to check comprehension: "Which part covers hospital stays?" Expected answer: Part A.
+      </div>
+
+      <div class="lesson-nav">
+        <button class="btn" disabled>← Previous</button>
+        <button class="btn" onclick="goToLesson(2)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <section data-page="lesson-2">
+      <h2>Module 2: Plan Types & Benefits</h2>
+      <p><strong>Learning Objectives:</strong></p>
+      <ul>
+        <li>Compare Medicare Advantage and Original Medicare</li>
+        <li>Understand Medigap supplemental plans</li>
+        <li>Explore prescription drug coverage options</li>
+      </ul>
+
+      <h3>Medicare Advantage vs Original Medicare</h3>
+      <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+        <tr style="background: #f0f0f0;">
+          <th style="padding: 0.75rem; border: 1px solid #ccc; text-align: left;">Feature</th>
+          <th style="padding: 0.75rem; border: 1px solid #ccc; text-align: left;">Original Medicare</th>
+          <th style="padding: 0.75rem; border: 1px solid #ccc; text-align: left;">Medicare Advantage</th>
+        </tr>
+        <tr>
+          <td style="padding: 0.75rem; border: 1px solid #ccc;">Provider Network</td>
+          <td style="padding: 0.75rem; border: 1px solid #ccc;">Any provider accepting Medicare</td>
+          <td style="padding: 0.75rem; border: 1px solid #ccc;">In-network preferred</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.75rem; border: 1px solid #ccc;">Out-of-Pocket Max</td>
+          <td style="padding: 0.75rem; border: 1px solid #ccc;">Unlimited</td>
+          <td style="padding: 0.75rem; border: 1px solid #ccc;">Capped annually</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.75rem; border: 1px solid #ccc;">Prescription Drugs</td>
+          <td style="padding: 0.75rem; border: 1px solid #ccc;">Separate Part D plan</td>
+          <td style="padding: 0.75rem; border: 1px solid #ccc;">Often included</td>
+        </tr>
+      </table>
+
+      <div class="facilitator-note">
+        <strong>Facilitator Note:</strong> Run a breakout room activity: Pair learners and assign each pair a scenario (e.g., "Your client has diabetes and uses 4 medications"). They decide: Original Medicare + Medigap or Medicare Advantage? Have them present in 2 minutes.
+      </div>
+
+      <div class="lesson-nav">
+        <button class="btn" onclick="goToLesson(1)">← Previous</button>
+        <button class="btn" onclick="goToLesson(3)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <section data-page="lesson-3">
+      <h2>Module 3: Compliance & Marketing</h2>
+      <p><strong>Learning Objectives:</strong></p>
+      <ul>
+        <li>Know CMS regulations for Medicare marketing</li>
+        <li>Identify compliant and non-compliant messaging</li>
+        <li>Understand documentation and disclosure requirements</li>
+      </ul>
+
+      <h3>Do's and Don'ts</h3>
+      <p><strong>✅ DO:</strong></p>
+      <ul>
+        <li>Provide accurate information about plan costs and benefits</li>
+        <li>Disclose enrollment restrictions (if any)</li>
+        <li>Maintain records of all marketing materials</li>
+        <li>Get written consent before using comparative advertising</li>
+      </ul>
+      <p><strong>❌ DON'T:</strong></p>
+      <ul>
+        <li>Make misleading claims about plan benefits</li>
+        <li>Pressure seniors into enrollment</li>
+        <li>Omit enrollment period restrictions</li>
+        <li>Use unapproved marketing materials</li>
+      </ul>
+
+      <h3>Case Study</h3>
+      <p><em>"Our Medicare Advantage plan covers everything — no copays, no deductibles, unlimited doctor visits!"</em></p>
+      <p>🚨 <strong>Problem:</strong> Overly broad claims without disclaimers. Would violate CMS rules.</p>
+      <p>✅ <strong>Correction:</strong> "Our Medicare Advantage plan includes preventive care with no copay, and has an annual out-of-pocket maximum."</p>
+
+      <div class="lesson-nav">
+        <button class="btn" onclick="goToLesson(2)">← Previous</button>
+        <button class="btn" onclick="goToLesson(4)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <section data-page="lesson-4">
+      <h2>Module 4: Sales Enablement & Role-Play</h2>
+      <p><strong>Learning Objectives:</strong></p>
+      <ul>
+        <li>Craft compelling value propositions</li>
+        <li>Handle common objections</li>
+        <li>Practice real-world sales conversations</li>
+      </ul>
+
+      <h3>Value Proposition Template</h3>
+      <pre style="background: #f0f4ff; padding: 1rem; border-radius: 4px; overflow-x: auto;">
+[Prospect Name], our Medicare Advantage plan offers:
+1. [Key Benefit] — e.g., $0 preventive care
+2. [Key Benefit] — e.g., Included prescription drugs
+3. [Key Benefit] — e.g., Dental & vision extras
+
+That means [Outcome] — e.g., you save $X per year.
+      </pre>
+
+      <h3>Role-Play Activity</h3>
+      <p><strong>Setup:</strong> Breakout rooms (2–3 per group). Rotate roles: salesperson, prospect, observer.</p>
+      <p><strong>Scenario:</strong> Prospect is skeptical about switching from Original Medicare. They're concerned about provider choice.</p>
+      <p><strong>Time:</strong> 5 minutes per role, then debrief (2 minutes).</p>
+
+      <div class="facilitator-note">
+        <strong>Facilitator Note:</strong> Provide objection cards in the chat:
+        <ul>
+          <li>"I like my doctor. Can I see them with this plan?"</li>
+          <li>"Is this going to cost me more?"</li>
+          <li>"I'm worried about losing coverage."</li>
+        </ul>
+      </div>
+
+      <div class="lesson-nav">
+        <button class="btn" onclick="goToLesson(3)">← Previous</button>
+        <button class="btn" disabled>Next →</button>
+      </div>
+    </section>
+
+    <!-- QUIZZES SECTION -->
+    <section data-page="quizzes">
+      <h2>Module Quizzes</h2>
+      <p>Test your knowledge and earn points! Each correct answer is worth 10 points.</p>
+
+      <button class="btn" onclick="loadQuiz(1)">Quiz 1: Medicare Basics</button>
+      <button class="btn" onclick="loadQuiz(2)">Quiz 2: Plan Types</button>
+      <button class="btn" onclick="loadQuiz(3)">Quiz 3: Compliance</button>
+      <button class="btn" onclick="loadQuiz(4)">Quiz 4: Sales Skills</button>
+
+      <div id="quiz-container" style="margin-top: 2rem; display: none;">
+        <form id="quiz-form" class="quiz-section">
+          <!-- Quizzes loaded here dynamically -->
+        </form>
+        <div id="quiz-result" class="quiz-result"></div>
+      </div>
+    </section>
+
+    <!-- FACILITATOR GUIDE SECTION -->
+    <section data-page="facilitator">
+      <h2>Facilitator Guide</h2>
+      <p>Tips for running engaging live sessions via Zoom or Microsoft Teams.</p>
+
+      <h3>Pre-Session Setup</h3>
+      <ul>
+        <li>Upload course materials to your learning management system (LMS) or shared drive.</li>
+        <li>Test Zoom/Teams breakout rooms (for role-play activities).</li>
+        <li>Prepare a slide deck (optional; use this website as the primary resource).</li>
+        <li>Notify participants of the Zoom/Teams link and login credentials.</li>
+      </ul>
+
+      <h3>Session Structure (per 90-min module)</h3>
+      <ul>
+        <li><strong>10 min:</strong> Welcome & check-in. Recap previous module.</li>
+        <li><strong>25 min:</strong> Teach core content. Use polls frequently.</li>
+        <li><strong>30 min:</strong> Interactive activity (breakout rooms, case study, role-play).</li>
+        <li><strong>15 min:</strong> Debrief. Share key takeaways.</li>
+        <li><strong>10 min:</strong> Assign homework & preview next module.</li>
+      </ul>
+
+      <h3>Engagement & Gamification</h3>
+      <ul>
+        <li><strong>Points:</strong> Award 10 points for each quiz question answered correctly.</li>
+        <li><strong>Leaderboard:</strong> Share leaderboard at the end of each session to motivate competition.</li>
+        <li><strong>Badges:</strong> (Future) Award digital badges for completing modules or achieving milestones.</li>
+      </ul>
+
+      <h3>Zoom/Teams Tips</h3>
+      <ul>
+        <li><strong>Polls:</strong> Use built-in polls for quick comprehension checks.</li>
+        <li><strong>Chat:</strong> Encourage Q&A in the chat. Assign a co-facilitator to monitor.</li>
+        <li><strong>Breakout Rooms:</strong> For role-play, create rooms of 2–3. Set a timer (use the facilitator timer below).</li>
+        <li><strong>Recording:</strong> Record sessions (with participant consent) and share afterward.</li>
+        <li><strong>Attendee List:</strong> Use it to track participation and award bonus points.</li>
+      </ul>
+
+      <h3>Facilitator Timer</h3>
+      <p>Start a 15-minute timer for the next activity:</p>
+      <button class="btn" onclick="startFacilitatorTimer(15)">Start 15-Min Timer</button>
+      <p id="timer-display" style="font-size: 2rem; font-weight: bold; color: #667eea; margin-top: 1rem;">15:00</p>
+
+      <h3>Handling Common Scenarios</h3>
+      <ul>
+        <li><strong>Low engagement:</strong> Use more polls and breakout rooms. Call on individuals by name.</li>
+        <li><strong>Technical issues:</strong> Have a co-facilitator monitor the chat. Offer phone call-in option.</li>
+        <li><strong>Advanced learners:</strong> Assign them as "breakout room observers" or peer coaches.</li>
+        <li><strong>Struggling learners:</strong> Offer 1-on-1 office hours after the session.</li>
+      </ul>
+    </section>
+
+    <!-- LEADERBOARD SECTION -->
+    <section data-page="leaderboard">
+      <h2>🏆 Leaderboard</h2>
+      <p>Compete with other learners. Earn points by completing quizzes and lessons!</p>
+
+      <div class="leaderboard">
+        <h3>Top 10 Learners</h3>
+        <ol id="leaderboard-list">
+          <!-- Populated by JavaScript -->
+        </ol>
+      </div>
+
+      <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">💡 <strong>Tip:</strong> Points are updated in real-time as you complete quizzes. Share your score with colleagues and challenge them to beat it!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Golden Outlook University. Built with Netlify & Vanilla JavaScript.</p>
+    <p><a href="#">Contact Us</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="quizzes.js"></script>
+</body>
+</html>

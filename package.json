@@ -1,0 +1,20 @@
+{
+  "name": "goldenoutlook-university",
+  "version": "1.0.0",
+  "description": "Netlify-native Medicare training platform for Golden Outlook",
+  "main": "public/index.html",
+  "scripts": {
+    "serve": "python3 -m http.server 8000 --directory public",
+    "deploy": "netlify deploy --prod --dir=public"
+  },
+  "keywords": [
+    "education",
+    "medicare",
+    "training",
+    "interactive",
+    "gamified",
+    "netlify"
+  ],
+  "author": "Pitch Marketing Agency",
+  "license": "MIT"
+}

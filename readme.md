@@ -1,98 +1,122 @@
-# Golden Outlook University
+# Golden Outlook University — Netlify Native Static Site
 
-Resources, training materials, and starter code for Golden Outlook University's marketing and pitch-development courses.
+A Netlify-native JavaScript web application for Medicare training. **No build step required.**
 
-This repository holds course content, example projects, and templates used by the Pitch Marketing Agency to teach strategy, copywriting, and presentation skills.
+## Structure
 
-**Status:** Draft — use this README as a starting point and customize sections for your project.
+```
+netlify-site/
+├── netlify.toml          # Netlify configuration (no build needed)
+├── public/
+│   ├── index.html        # Main SPA (Single Page App)
+│   ├── styles.css        # Complete styling
+│   ├── app.js            # Core navigation & state management
+│   └── quizzes.js        # Quiz logic & data
+└── README.md             # This file
+```
 
-**Table of Contents**
-- [Project Overview](#project-overview)
-- [Quick Start](#quick-start)
-- [Development](#development)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## Features
 
-## Project Overview
+- ✅ **No Build Step** — Static HTML + vanilla JS (deployed as-is)
+- ✅ **Responsive Design** — Works on mobile, tablet, desktop
+- ✅ **Interactive Quizzes** — Client-side scoring with points tracking
+- ✅ **Leaderboard** — Real-time points display (mock data for demo)
+- ✅ **Facilitator Timer** — For Zoom/Teams session management
+- ✅ **4 Complete Modules** — Medicare basics, plan types, compliance, sales
+- ✅ **Gamification** — Points, badges, leaderboard
 
-Golden Outlook University centralizes educational material and example projects for teaching pitch strategy, marketing fundamentals, and client-facing presentation techniques.
+## Deployment to Netlify
 
-Use this repository to:
-- Store slides, templates, and course notes
-- Keep example code and tiny web demos used in lessons
-- Share exercises and grading rubrics with students
+1. **Option A: Direct Deploy**
+   ```bash
+   cd netlify-site
+   netlify deploy --prod --dir=public
+   ```
 
-## Quick Start
+2. **Option B: GitHub Integration**
+   - Push this folder to GitHub
+   - Connect your GitHub repo to Netlify
+   - Set "Publish directory" to `netlify-site/public`
+   - Deploy on push (automatic)
 
-Clone the repo and open the project directory:
+## Local Testing
 
 ```bash
-git clone <your-repo-url>
-cd goldenoutlook.university
+cd netlify-site/public
+python3 -m http.server 8000
 ```
 
-This repo is intentionally generic. Below are common workflows — remove sections that don't apply.
+Then open `http://localhost:8000` in your browser.
 
-### If the project contains Node.js examples
+## Adding PDF Materials
+
+Place your `The-Only-Medicare-Book-You-Need.pdf` in `public/materials/` (or create a subdirectory):
 
 ```bash
-npm install
-npm run dev        # or `npm start` depending on package.json
+mkdir -p public/materials
+cp /path/to/The-Only-Medicare-Book-You-Need.pdf public/materials/
 ```
 
-### If the project contains Python examples
+Then link it in the lessons or add a "Download Materials" button in `index.html`.
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python main.py
+## Extending the Course
+
+### Add a New Lesson
+
+Edit `index.html` and add a new `<section data-page="lesson-5">`. Update the nav if needed.
+
+### Add More Quizzes
+
+Edit `quizzes.js` and add to the `quizzes` object:
+
+```javascript
+5: {
+  title: "Quiz 5: New Topic",
+  questions: [
+    {
+      text: "Question text?",
+      answer: "A",
+      options: { A: "Option A", B: "Option B", ... }
+    }
+  ]
+}
 ```
 
-## Development
+### Customize Colors
 
-- Keep example projects small and focused.
-- Add README files inside subfolders to explain each lesson or example.
-- Use meaningful commit messages for lesson updates (e.g., "add module: value proposition").
-
-Suggested git workflow:
-
-```bash
-git checkout -b feature/<short-description>
-# make changes
-git add .
-git commit -m "feat: add lesson on positioning statements"
-git push --set-upstream origin feature/<short-description>
+Edit `styles.css`. Change:
+```css
+header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.btn { background: #667eea; }
 ```
 
-## Contributing
+## Analytics & Tracking
 
-Contributions are welcome. To propose a change:
+To add Google Analytics or Netlify Analytics:
 
-1. Fork the repository.
-2. Create a descriptive branch.
-3. Open a pull request with a clear summary of changes.
+1. **Netlify Analytics** — Enable in Netlify dashboard (easiest)
+2. **Google Analytics** — Add to `<head>` in `index.html`:
+   ```html
+   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID"></script>
+   <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'GA_ID');
+   </script>
+   ```
 
-Please include a short note explaining the purpose of new material and any instructor-facing notes.
+## Customization Ideas
 
-## License
+- [ ] Replace mock leaderboard with a backend API (Node/Express, Supabase, etc.)
+- [ ] Add user authentication (Netlify Identity, Auth0)
+- [ ] Store progress in localStorage or a database
+- [ ] Generate certificate of completion
+- [ ] Embed Zoom/Teams directly using Zoom SDK
+- [ ] Add discussion forum (Disqus, Discourse)
+- [ ] Create PDF certificates with jsPDF
 
-This repository does not include a license by default. Add a `LICENSE` file if you want permissive reuse (for example, the MIT license):
+## Support & Questions
 
-```
-MIT License
-```
-
-If you need a different license for course materials, replace the above with the appropriate license text.
-
-## Contact
-
-For questions about course material or repository structure, contact the repository maintainers or the Pitch Marketing Agency team.
-
----
-
-If you'd like, I can:
-- tailor this README to a specific language/framework found in the repo,
-- add badges (CI, license), or
-- create per-lesson README templates.
+For help with Netlify deployment, see [Netlify Docs](https://docs.netlify.com/).
+For JavaScript questions, refer to [MDN Web Docs](https://developer.mozilla.org/).
